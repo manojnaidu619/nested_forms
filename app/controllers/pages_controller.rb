@@ -1,7 +1,8 @@
 class PagesController < ApplicationController
   def index
+    @project = Project.all
   end
-  
+
   def new
     @project = Project.new
   end
@@ -15,6 +16,13 @@ class PagesController < ApplicationController
      end
   end
 
+
+  def destroy
+    @project = Project.find(params[:id])
+    if @project.destroy
+      redirect_to root_path
+    end
+  end
   private
 
   def project_params
