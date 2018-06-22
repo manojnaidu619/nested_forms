@@ -1,0 +1,9 @@
+<%= form_for @project , url: {action: "create"} do |f| %>
+ <%= f.label :name %><br>
+ <%= f.text_field :name, autocomplete: 'off' %><br>
+   <%= f.fields_for :tasks, @project.tasks.build do |ff| %>
+    <%= ff.label :title %><br>
+    <%= ff.text_field :title , autocomplete: 'off' %><br>
+   <% end %>
+ <%= f.submit %>
+<% end %>
