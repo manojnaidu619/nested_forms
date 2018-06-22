@@ -1,11 +1,16 @@
 <h1><%= link_to "create new project", new_page_path %></h1>
 
-<% @project.each do |project| %>
-   Project Name:
-  <%= project.name %><br>
-     <% project.tasks.each do |project_task| %>
-     Project Title:
-     <%= project_task.title %><br>
-     <%= link_to "Delete", page_path(project), method: :delete, data: {confirm: "Going to delete complete record?"} %><hr>
-     <% end %>
-<% end %>
+<% if !Project.all.empty? %>
+    <% @project.each do |project| %>
+         Project Name:
+        <%= project.name %><br>
+           <% project.tasks.each do |project_task| %>
+           Project Title:
+           <%= project_task.title %><br>
+           <%= link_to "Delete", page_path(project), method: :delete,
+                                                     data: {confirm: "Going to delete complete record?"} %><hr>
+           <% end %>
+    <% end %>
+<% else %>
+ <h3>No projects yet, Try creating one!!</h3>
+ <% end %>
