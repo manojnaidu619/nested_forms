@@ -1,24 +1,12 @@
-# README
+# Nested_Forms in rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a basic demo of implementing nested forms feature in rails, where one form is backed by multiple models  
 
-Things you may want to cover:
+Things you want to ensure:
 
-* Ruby version
+* Use  ``` fields_for ```  tag, in the form template.
 
-* System dependencies
+* Adding ``` accepts_nested_attributes_for :associated_model_name ``` in the parent model.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Whitelisting attributes in the strong parameters
+``` (associated_model_name)_attributes: [:attributes_name...] ```
